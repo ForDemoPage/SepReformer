@@ -391,11 +391,62 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Methodss</h2>
+          <h2 class="title is-3">Summary</h2>
           <div class="content has-text-justified">
-            <p>
-              Since 
-            </p>
+            <h2>Introduction</h2>
+            <p>The paper presents a novel approach to speech separation using an asymmetric encoder-decoder network named SepReformer. The goal is to improve the efficiency and performance of separating mixed speech signals into individual components. Traditional methods, like the dual-path model, segment long sequences into chunks, which increases computational load and complexity. The proposed SepReformer addresses these issues with a more direct and efficient approach.</p>
+            
+            <h2>Key Methods</h2>
+            <h3>1. Asymmetric Encoder-Decoder Structure</h3>
+            <ul>
+                <li>
+                    <strong>Encoder:</strong> Processes the input signal to generate feature representations.
+                </li>
+                <li>
+                    <strong>Early Split:</strong> The encoded feature sequence is split early in the network, corresponding to the number of speakers, which allows the network to handle each speaker's features separately from an early stage.
+                </li>
+                <li>
+                    <strong>Decoder:</strong> Reconstructs the separated speech signals from the encoded features. Uses a shared decoder structure inspired by Siamese networks to handle the split sequences.
+                </li>
+            </ul>
+            
+            <h3>2. Weight-Sharing Siamese Network</h3>
+            <p>The decoder uses a weight-sharing mechanism across multiple branches, similar to a Siamese network, to process separated features. This approach enhances the discriminative power of the network by ensuring that each decoder branch learns distinct characteristics of each speaker's features.</p>
+            
+            <h3>3. Transformer Blocks</h3>
+            <ul>
+                <li><strong>Global Transformer:</strong> Captures long-range dependencies in the sequence.</li>
+                <li><strong>Local Transformer:</strong> Focuses on fine-grained, short-term dependencies.</li>
+            </ul>
+            
+            <h3>4. Cross-Speaker (CS) Module</h3>
+            <p>This module within the decoder allows interaction between features of different speakers, enhancing the network's ability to separate and reconstruct overlapping speech elements.</p>
+            
+            <h3>5. Multi-Loss Training</h3>
+            <p>The network is trained with a multi-loss objective, where intermediate layers are optimized to progressively refine the separated outputs. This progressive reconstruction approach helps in achieving better performance by guiding the network to focus on discriminative learning at multiple stages.</p>
+            
+            <h2>Results and Evaluation</h2>
+            <p>The SepReformer model demonstrates state-of-the-art performance on various benchmark datasets, including WSJ0-2Mix, WHAM!, WHAMR!, and LibriMix. Key findings include:</p>
+            <ul>
+                <li>Significant reduction in computational load compared to traditional dual-path models.</li>
+                <li>Superior performance in terms of signal-to-noise ratio improvement (SI-SNR) and other metrics.</li>
+                <li>Effectiveness of the early split and shared decoder structure in improving separation quality.</li>
+            </ul>
+            
+            <h2>Keywords</h2>
+            <ul>
+                <li>Speech Separation</li>
+                <li>Asymmetric Encoder-Decoder</li>
+                <li>Siamese Network</li>
+                <li>Transformer Blocks</li>
+                <li>Cross-Speaker Interaction</li>
+                <li>Multi-Loss Training</li>
+                <li>SepReformer</li>
+            </ul>
+            
+            <h2>Conclusion</h2>
+            <p>The proposed SepReformer method offers a novel and efficient approach to speech separation by leveraging an asymmetric encoder-decoder structure, weight-sharing Siamese networks, and Transformer-based sequence processing. This results in improved separation performance with reduced computational requirements, making it a promising solution for real-time speech separation applications.</p>
+
           </div>
         </div>
       </div>
